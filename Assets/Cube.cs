@@ -21,34 +21,50 @@ public class Cube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // message if up arrow is pressed.
+    //movement controls:
+        // moves up if up arrow is pressed.
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             MyRigidbody2D.velocity = new Vector2(0f, 10f);
         }
 
-        // message if down arrow is pressed.
+        // moves down if down arrow is pressed.
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             MyRigidbody2D.velocity = new Vector2(0f, -10f);
         }
 
-        // message if right arrow is pressed.
+        // moves right if right arrow is pressed.
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             MyRigidbody2D.velocity = new Vector2(10f, 0f);
         }
 
-        // message if left arrow is pressed.
+        // moves left if left arrow is pressed.
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             MyRigidbody2D.velocity = new Vector2(-10f, 0f);
         }
 
-        // message if space bar is pressed.
+        // moves up if space bar is pressed.
         if (Input.GetKeyDown(KeyCode.Space))
         {
             MyRigidbody2D.velocity = new Vector2(0f, 10f);
+        }
+    //end of movement controls.
+
+    //checks if the cube is out of borders:
+        if (transform.position.x > 9.42f)
+        {
+            Debug.LogWarning("You are out of borders to the Right side!!");
+        }
+        else if (transform.position.x < -9.42f)
+        {
+            Debug.LogWarning("You are out of borders to the Left side!!");
+        }
+        else if (transform.position.y > 5.5f)
+        {
+            Debug.LogWarning("You are out of borders to the Upper side!!");
         }
     }
 }
